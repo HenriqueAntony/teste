@@ -1,49 +1,56 @@
-
 body {
   margin: 0;
   padding: 0;
-  background: rgb(28,68,67);
-  background: linear-gradient(90deg, rgba(28,68,67,1) 18%, rgba(0,3,36,1) 64%);
+  background:#000324;
+ 
+  background-size:100%;
+ 
+  background-repeat:no-repeat;
   width: 100%;
   height: 2600px;
   font-family: 'Arial', sans-serif;
   box-sizing: border-box;
+  overflow-x: hidden !important;
+  word-wrap:break-word;
+  overflow-wrap: break-word;
 }
 
 header {
- 
-  padding:0;
-  margin: 0;
-  height: 60px;
- 
   background-color:#B7BAAF;
-  
-  width:100%;
 }
 
-ul{
-  width: 60%;
+.nav-list{
+  list-style: none;
   display:flex;
-  justify-content: space-around;
-  align-items: center;
-  
  
+  
 }
-
-ul li{
-  align-content: center;
+.List::after{
+  display:none;
+}
+.nav-list li{
+  letter-spacing: 3px;
   color: #fff;
   font-family: 'montserrat', sans-serif;
   font-weight: 500;
   font-size: 18px;
-  display: inline;
-  list-style: none;
+  margin-left: 40px;
 }
-ul li:hover{
-  cursor: pointer;
-  color: #000000;
-  opacity: 30%;
-}
+.mobile-menu {
+  color: #fff;
+	display: none;
+	cursor: pointer;
+  }
+ 
+  
+  .mobile-menu div {
+	width: 25px;
+	height: 2.1px;
+	background: #fff;
+	margin: 8px;
+	transition: 0.3s;
+  
+  }
 .Logo{
   cursor: pointer;
 }
@@ -57,28 +64,40 @@ ul li:hover{
   height: 1.7rem;;
 }
 nav-menu{
- 
-  margin-left: 15%;
-  margin-right: 15%;
-  height: 60px;
+  padding:4vh;
+  margin: 0 auto;
+  max-width:1024px;
+  height: 5vh;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
+}
+ a{
+  text-decoration: none;
+  color: #fff;
+}
+a:hover{
+  cursor: pointer;
+  color: #000000;
+  opacity: 30%;
 }
 .topo{
-  height:18%;
+  width:100%;
+  height: 100vh;
+
 
 }
 .topo div{
-  position: absolute;
-  margin-left: 30%;
   
+  margin-left: 25%;
+ 
 }
 
 .features {
+  top:  0;
   display: flex;
   justify-content: space-around;
-  padding: 2rem;
+ 
 }
 
 .feature {
@@ -86,7 +105,6 @@ nav-menu{
 }
 
 footer {
-  background-color: #1C4443;
   color: #fff;
   text-align: center;
   padding: 1rem;
@@ -105,11 +123,14 @@ h1{
   color: #fff;
   font-size: 30px;
 }
-
+.Designers div{
+  height: auto;
+  margin: 0 auto;
+}
 .flip-box {
   background-color: transparent;
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 220px;
   perspective: 1000px;
   margin: 50px auto;
 }
@@ -162,4 +183,105 @@ transition: opacity 0.5s ease, transform 0.5s ease;
 #image-container.show {
 opacity: 1;
 transform: translateY(0); /* Move the image back to its original position */
+}
+.Imagem{
+  position: relative;
+  left: 280px; 
+  top: 10px; 
+  width:220px ;
+}
+
+/*Parte ajustando media das telas*/
+
+@media screen and (max-width: 999px) {
+	nav-menu{
+    margin: 0 20px;
+  }
+	.nav-list {
+    display:none;
+	  position: absolute;
+	  top: 6vh;
+	  right: 0;
+	  width: 100vw;
+	  height: 92vh;
+	  background: #B7BAAF;
+	  flex-direction: column;
+	  align-items: center;
+	  justify-content: space-around;
+	  transform: translateX(100%);
+	  transition: transform 0.3s ease-in;
+	  
+	}
+	.nav-list li {
+		margin-bottom:4vh;
+	  margin-left: 0;
+	  opacity: 0;
+	}
+  a{
+    color: #000324;
+  }
+	.mobile-menu {
+	  display: block;
+	
+  }
+  
+  .nav-list.active {
+    display:flex;
+    z-index:20;
+	transform: translateX(0);
+  }
+  
+  @keyframes navLinkFade {
+	from {
+	  opacity: 0;
+	  transform: translateX(50px);
+	}
+	to {
+	  opacity: 1;
+	  transform: translateX(0);
+	}
+  }
+  
+  .mobile-menu.active .line1 {
+	transform: rotate(-45deg) translate(-8px, 8px);
+  }
+  
+  .mobile-menu.active .line2 {
+	opacity: 0;
+  }
+  
+  .mobile-menu.active .line3 {
+	transform: rotate(45deg) translate(-5px, -7px);
+  }
+  .topo div{
+   margin-left:20%;
+  align-items: center;
+   
+  }
+  .flip-box{
+    width: 30%;
+    height: 200px;
+
+  }
+}
+@media screen and (min-width: 900px){
+  .topo div{
+
+    margin-left: 0;
+    
+  }
+  .topo div p{
+    
+    margin-left: 5%;
+    font-size: 20px;
+  }
+  .topo div h1{
+    margin-left: 5%;
+    font-size: 25px;
+  }
+  .Imagem{
+    left: 60%;
+    
+  }
+
 }
